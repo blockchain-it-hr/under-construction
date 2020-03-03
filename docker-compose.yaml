@@ -1,0 +1,14 @@
+version: "3.3"
+services: :
+    under-construction:
+        container_name: under-construction
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        ports:
+        - "5000":"5000"
+        networks: 
+        - uc-network
+        restart: always
+networks: 
+    uc-network:
