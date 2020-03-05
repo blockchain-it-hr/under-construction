@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+  build_push_docker:
+    docker:
+      - image: circleci/node:10.19.0-buster
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+      name: Build and push docker images
+      command: |
+        echo ${CIRCLE_BRANCH}
+        CIRCLE_BRANCH=${CIRCLE_BRANCH} ./scripts/build_and_publish_docker_images.sh
