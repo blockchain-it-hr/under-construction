@@ -7,7 +7,7 @@ services:
             - '443:443'
           restart: always
           environment:
-            DOMAINS: 'app.under-construction.work -> http://under-construction:5000'
+            DOMAINS: 'app.under-construction.work -> http://under-construction:8001'
             STAGE: 'production'
           container_name: nginx
           networks:
@@ -18,7 +18,7 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-        - "5000":"5000"
+        - "8001":"5000"
         networks: 
         - uc-network
         restart: always
