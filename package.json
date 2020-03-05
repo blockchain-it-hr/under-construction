@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "serve": "serve -s dist"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
     "node-sass": "^4.13.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.26.1"
+  },
+  "dependencies": {
+    "serve": "^11.3.0"
   }
 }
