@@ -1,26 +1,27 @@
 version: "3.3"
 services: 
-    https-portal:
-        image: steveltn/https-portal:1
-        ports:
-            - '80:80'
-            - '443:443'
-          restart: always
-          environment:
-            DOMAINS: 'app.under-construction.work -> http://under-construction:8001'
-            STAGE: 'production'
-          container_name: nginx
-          networks:
-            - uc-network
-    under-construction:
-        container_name: under-construction
-        build: 
-            context: .
-            dockerfile: Dockerfile
-        ports:
-        - "8001":"5000"
-        networks: 
-        - uc-network
-        restart: always
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+    - '80:80'
+    - '443:443'
+    restart: always
+    environment:
+      DOMAINS: 'app.under-construction.work -> http://underconstruction:8001'
+      STAGE: 'production'
+    container_name: nginx
+    networks:
+    - uc-network
+  underconstruction:
+    image: shardlabs/underconstruction:latest
+    container_name: underconstruction
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "8001:5000"
+    networks: 
+    - uc-network
+    restart: always
 networks: 
-    uc-network:
+  uc-network:
